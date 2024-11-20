@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const Contador = ({inicio, fin}) => {
-    const [counter, setCounter] = useState(inicioss);
+    const [counter, setCounter] = useState(inicio);
 
     const decrementar = () => {
         if (counter > inicio) {
