@@ -1,9 +1,9 @@
-import RenderizadoListas from "./Clase3/RenderizadoListas";
+import Calculator from "./Clase3/Calculator";
 
 function App() {
   return (
     <>
-      <RenderizadoListas />
+      <Calculator />
     </>
   )
 }
