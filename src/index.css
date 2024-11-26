@@ -1,3 +1,20 @@
 .colorAzul {
   color:blue;
 }
+
+body {
+  background-color: #f5ebdc;
+}
+
+.colorFondo {
+  background-color: #f5ebdc;
+}
+
+.colorNavBar {
+  color:#724c3d;
+  font-weight: bold;
+}
+
+.colorNombreProducto {
+  color:#502314;
+}
