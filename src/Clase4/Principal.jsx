@@ -1,17 +1,33 @@
-import { Link, Navigate, useParams, useSearchParams } from "react-router-dom"
+import { Link, Navigate, replace, useNavigate, useParams, useSearchParams } from "react-router-dom"
 import productos from "./json/productos.json"
 
 const Principal = () => {
     /* const {id} = useParams(); */ // Capturar paramétros en la url
     const [params, setParams] = useSearchParams(); // Capturar valores de las variables ?query=valor1&query2=valor2
     const id = params.get("category");
+    const navigate = useNavigate();
         
     const productosFiltro = id ? productos.filter(item => item.categoria == id) : productos;
 
+    const redireccionar = () => {
+        navigate("/", {replace:true});
+    }
+
     if (productosFiltro.length == 0) {
         return (
-            <Navigate to={"/error"} />
+            <div className="container my-5">
+                <div className="row">
+                    <div className="col text-center">
+                        <h1>Error No se encontraron Productos!</h1>
+                        <button className="btn btn-warning" onClick={redireccionar}>Volver a la Página Principal</button>
+                    </div>
+                </div>
+            </div>
         )
+
+        /* return (
+            <Navigate to={"/error"} />
+        ) */
     }
 
     return (
