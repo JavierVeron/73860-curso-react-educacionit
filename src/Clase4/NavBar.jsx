@@ -1,8 +1,12 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { ThemeContext } from "../Clase5/context/ThemeContext"
 
 const NavBar = () => {
+    const {darkMode, switchDarkMode} = useContext(ThemeContext);
+
     return (
-        <div className="container my-5">
+        <div className={`container my-5 ${darkMode ? "colorNavBar" : "fondoBlanco"}`}>
             <div className="row">
                 <div className="col">
                     <ul className="nav">
@@ -24,6 +28,10 @@ const NavBar = () => {
                             <Link to={"?category=merienda"} className="nav-link colorNavBar">Merienda</Link>
                         </li>
                     </ul>
+                    <div className="form-check form-switch">
+                    <input className="form-check-input" type="checkbox" role="switch" onChange={switchDarkMode} checked={darkMode ? "checked" : ""} />
+                    <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Habilitar DarkMode</label>
+                    </div>
                 </div>
             </div>
         </div>
