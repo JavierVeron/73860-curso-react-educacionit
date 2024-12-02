@@ -15,8 +15,10 @@ body {
   font-weight: bold;
 }
 
-.fondoBlanco {
-  background-color: white;
+.fondoNegro {
+  color: white;
+  background-color: black;
+  padding: 5px;
 }
 
 .colorNombreProducto {
