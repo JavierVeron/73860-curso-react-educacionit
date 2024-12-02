@@ -13,6 +13,7 @@ body {
 .colorNavBar {
   color:#724c3d;
   font-weight: bold;
+  padding: 5px;
 }
 
 .fondoNegro {
@@ -23,4 +24,13 @@ body {
 
 .colorNombreProducto {
   color:#502314;
+}
+
+.colorBoton {
+  color: white;
+  background-color: #502314;
+}
+
+table > tr > td .table {
+  background-color: #f5ebdc;
 }

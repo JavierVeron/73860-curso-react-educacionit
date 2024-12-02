@@ -6,9 +6,9 @@ const NavBar = () => {
     const {darkMode, switchDarkMode} = useContext(ThemeContext);
 
     return (
-        <div className={`container my-5 ${darkMode ? "fondoNegro" : "colorNavBar"}`}>
+        <div className={`container my-5 ${darkMode ? "colorNavBar" : "fondoBlanco"}`}>
             <div className="row">
-                <div className="col-md-6">
+                <div className="col">
                     <ul className="nav">
                         <li>
                             <Link to={"/"} title="Burger King">
@@ -28,11 +28,9 @@ const NavBar = () => {
                             <Link to={"?category=merienda"} className="nav-link colorNavBar">Merienda</Link>
                         </li>
                     </ul>
-                </div>
-                <div className="col-md-6">
-                    <div className="form-check form-switch d-flex align-items-center justify-content-end">
-                        <input className="form-check-input mx-1" type="checkbox" role="switch" onChange={switchDarkMode} checked={darkMode ? "checked" : ""} />
-                        <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Habilitar DarkMode</label>
+                    <div className="form-check form-switch">
+                    <input className="form-check-input" type="checkbox" role="switch" onChange={switchDarkMode} checked={darkMode ? "checked" : ""} />
+                    <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Habilitar DarkMode</label>
                     </div>
                 </div>
             </div>
