@@ -8,6 +8,9 @@ import Cart from "./ecommerceContext/Cart";
 import Checkout from "./ecommerceContext/Checkout";
 import ThankYou from "./ecommerceContext/ThankYou";
 import Error404 from "./ecommerceContext/Error404";
+//import APIXML from "./Clase6/APIXML";
+//import Promesas from "./Clase6/Promesas";
+import APIFetch from "./Clase6/APIFetch";
 
 function App() {
   return (
@@ -16,7 +19,7 @@ function App() {
         <ThemeContextProvider>
           <NavBar />
           <Routes>
-            <Route path={"/"} element={<Principal />} />
+            <Route path={"/"} element={<APIFetch />} />
             <Route path={"/category/:id"} element={<Principal />} />
             <Route path={"/producto/:id"} element={<Producto />} />
             <Route path={"/cart"} element={<Cart />} />
