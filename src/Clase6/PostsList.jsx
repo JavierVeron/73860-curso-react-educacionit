@@ -3,7 +3,6 @@ const PostsLists = ({posts}) => {
         <div className="container">
             <div className="row">
                 <div className="col">
-                    <h1>API XMLHTTPREQUEST</h1>
                     <ul className="list-group">
                         {
                             posts.map(item => (

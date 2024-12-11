@@ -6,7 +6,7 @@ const APIFetch = () => {
     const [loaded, setLoaded] = useState(false);
     const [posts, setPosts] = useState([]);
 
-    // Consumo de API con Fetch y then()
+    // Consumo de API con Fetch con los métodos then y catch()
     /* fetch("https://jsonplaceholder.typicode.com/posts")
     .then(response => response.json())
     .then(data => {

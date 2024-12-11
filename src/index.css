@@ -3,7 +3,9 @@
 }
 
 body {
-  background-color: #f5ebdc;
+  /*background-color: #f5ebdc;*/
+  background-color: black;
+  color: white;
 }
 
 .colorFondo {
