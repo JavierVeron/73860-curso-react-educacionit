@@ -12,7 +12,7 @@ const Netflix = () => {
     const options = {
         method: 'GET',
         headers: {
-            'x-rapidapi-key': 'e7bd91d0a0mshefa487790ee2198p12d639jsna7a4cceb37b0',
+            'x-rapidapi-key': '',
             'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
         }
     };
