@@ -1,15 +1,23 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { AGREGAR_ORDEN } from "./redux/actions";
 import CartZero from "./CartZero";
 
 const Checkout = () => {
-    const {cart, totalCarrito, sumaCarrito, agregarOrden} = useContext(CartContext);
+    const cart = useSelector(state => state.cart.carrito);
+    const orders = useSelector(state => state.cart.ordenes);
+    const cantProductos = useSelector(state => state.cart.cantProductos);
+    const sumaProductos = useSelector(state => state.cart.sumaProductos);
+    const dispatch = useDispatch();
+
+    // Inicializo los valores de los Campos del Formulario
     const [nombre, setNombre] = useState("Javier Verón");
     const [email, setEmail] = useState("javier.veron@gmail.com");
     const [telefono, setTelefono] = useState("1122334455");
     const navigate = useNavigate();
 
-    if (totalCarrito() == 0) {
+    if (cantProductos == 0) {
         return <CartZero />
     }
 
@@ -26,14 +34,15 @@ const Checkout = () => {
             return false;
         }
 
+        const id = orders.length + 1;
         const cliente = {nombre:nombre, email:email, telefono:telefono};
         const productos = cart.map(item => ({id:item.id, nombre:item.nombre, precio:item.precio, cantidad:item.cantidad}));
         const fechaActual = new Date();
         const fecha = `${fechaActual.getDate()}-${fechaActual.getMonth()+1}-${fechaActual.getFullYear()} ${fechaActual.getHours()}:${fechaActual.getMinutes()}`;
-        const orden = {cliente:cliente, productos:productos, total:sumaCarrito(), fecha:fecha};
-        const ordenActualizada = agregarOrden(orden);
+        const orden = {id:id, cliente:cliente, productos:productos, total:sumaProductos, fecha:fecha};
+        dispatch(AGREGAR_ORDEN(orden));      
 
-        navigate("/thankyou/" + ordenActualizada.id, {replace:true});
+        navigate("/thankyou/" + orden.id, {replace:true});
     }
 
     return (
@@ -72,7 +81,7 @@ const Checkout = () => {
                             }
                             <tr>
                                 <td colSpan={4} className="align-middle text-center">Total a Pagar</td>
-                                <td className="align-middle text-center">${sumaCarrito()}</td>
+                                <td className="align-middle text-center">${sumaProductos}</td>
                             </tr>
                         </tbody>
                     </table>

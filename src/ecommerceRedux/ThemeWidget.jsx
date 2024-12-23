@@ -1,8 +1,12 @@
-import { useContext } from "react";
-import { ThemeContext } from "../Clase5/context/ThemeContext";
+import { useDispatch, useSelector } from "react-redux"
 
 const ThemeWidget = () => {
-    const {darkMode, switchDarkMode} = useContext(ThemeContext);
+    const darkMode = useSelector(state => state.theme);
+    const dispatch = useDispatch();
+
+    const switchDarkMode = () => {
+        dispatch({type:"SWITCH_DARK_MODE"})
+    }
 
     return (
         <div className="form-check form-switch d-flex align-items-center justify-content-end">

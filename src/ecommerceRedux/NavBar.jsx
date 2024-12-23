@@ -1,12 +1,11 @@
-import { useContext } from "react"
 import { Link } from "react-router-dom"
-import { ThemeContext } from "../Clase5/context/ThemeContext"
 import Logo from "./Logo";
 import CartWidget from "./CartWidget";
 import ThemeWidget from "./ThemeWidget";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
-    const {darkMode} = useContext(ThemeContext);
+    const darkMode = useSelector(state => state.theme);
 
     return (
         <div className={`container my-5 ${darkMode ? "fondoNegro" : "colorNavBar"}`}>

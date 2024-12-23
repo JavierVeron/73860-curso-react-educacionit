@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 const Principal = () => {
     const {id} = useParams(); 
     const navigate = useNavigate();
-    const productos = useSelector(state => state.productos);
+    const productos = useSelector(state => state.cart.productos);
         
     const productosFiltro = id ? productos.filter(item => item.categoria == id) : productos;
     

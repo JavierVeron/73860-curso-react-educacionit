@@ -4,9 +4,9 @@ import { ELIMINAR_PRODUCTO, AUMENTAR_ITEM, DECREMENTAR_ITEM, VACIAR_CARRITO } fr
 import CartZero from "./CartZero";
 
 const Cart = () => {
-    const cart = useSelector(state => state.carrito);
-    const cantProductos = useSelector(state => state.cantProductos);
-    const sumaProductos = useSelector(state => state.sumaProductos);
+    const cart = useSelector(state => state.cart.carrito);
+    const cantProductos = useSelector(state => state.cart.cantProductos);
+    const sumaProductos = useSelector(state => state.cart.sumaProductos);
 
     const dispatch = useDispatch();
     

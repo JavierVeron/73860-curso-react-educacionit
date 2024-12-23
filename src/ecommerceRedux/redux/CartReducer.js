@@ -1,9 +1,9 @@
 import productos from "../json/productos.json";
-import { AGREGAR_PRODUCTO, ELIMINAR_PRODUCTO, AUMENTAR_ITEM, DECREMENTAR_ITEM } from "./actions";
 
 const initialState = {
     productos:productos,
     carrito:[],
+    ordenes:[],
     cantProductos:0,
     sumaProductos:0
 }
@@ -47,7 +47,7 @@ const CartReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                carrito:[...state.carrito],
+                carrito:nuevoCarrito,
                 cantProductos:nuevoCarrito.reduce((acum, item) => acum += item.cantidad, 0),
                 sumaProductos:nuevoCarrito.reduce((acum, item) => acum += item.cantidad * item.precio, 0)
             }
@@ -73,6 +73,14 @@ const CartReducer = (state = initialState, action) => {
                 carrito:[],
                 cantProductos:0,
                 sumaProductos:0
+            }
+        case "AGREGAR_ORDEN":            
+            const orden = action.payload;
+            const ordenesActualizado = [...state.ordenes, orden];            
+
+            return {
+                ...state,
+                ordenes:ordenesActualizado
             }
         default:
             return state;

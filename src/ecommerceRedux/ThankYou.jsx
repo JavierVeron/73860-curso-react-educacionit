@@ -1,11 +1,17 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom"
-import { CartContext } from "./context/CartContext";
+import { useDispatch, useSelector } from "react-redux";
+import { VACIAR_CARRITO } from "./redux/actions";
 
 const ThankYou = () => {
     const {id} = useParams();
-    const {ordenes, vaciarCarrito} = useContext(CartContext);    
-    const orden = ordenes.find(item => item.id == id);    
+    const orders = useSelector(state => state.cart.ordenes);
+    const orden = orders.find(item => item.id == id);
+    const dispatch = useDispatch();
+    
+    const vaciarCarrito = () => {
+        dispatch(VACIAR_CARRITO());
+    }
     
     useEffect(() => {
         vaciarCarrito();

@@ -4,7 +4,7 @@ import { AGREGAR_PRODUCTO } from "./redux/actions";
 
 const Producto = () => {
     const {id} = useParams();
-    const productos = useSelector(state => state.productos);
+    const productos = useSelector(state => state.cart.productos);
     const producto = productos.find(item => item.id == id);
     const dispatch = useDispatch();
     

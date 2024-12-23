@@ -3,3 +3,4 @@ export const ELIMINAR_PRODUCTO = (id) => ({type:"ELIMINAR_PRODUCTO", payload:id}
 export const AUMENTAR_ITEM = (id) => ({type:"AUMENTAR_ITEM", payload:id});
 export const DECREMENTAR_ITEM = (id) => ({type:"DECREMENTAR_ITEM", payload:id});
 export const VACIAR_CARRITO = () => ({type:"VACIAR_CARRITO"});
+export const AGREGAR_ORDEN = (orden) => ({type:"AGREGAR_ORDEN", payload:orden});
