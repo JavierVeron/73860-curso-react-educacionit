@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const CartWidget = () => {
-    const cantProductos = useSelector(state => state.cart.cantProductos);    
+    const cantProductos = useSelector(state => state.cart.cantProductos);
     
     return (
         <Link to={"/cart"} className="btn colorBoton position-relative">
